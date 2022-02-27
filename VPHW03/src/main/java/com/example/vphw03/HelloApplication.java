@@ -1,6 +1,7 @@
 package com.example.vphw03;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,13 +14,15 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HelloApplication extends Application {
     double sceneWidth = 540, sceneHeight = 320;
     static String[] labels = {"Book Title: ", "ISBN (Identifier): ", "Price: ", "Quantity: ", "Subtotal: ", "Sales Tax: ", "Total Due: "};
-    static String[] defaultValue = {"", "", "0.00", "0", "0.00", "0.00", "0.00"};
+    static String[] defaultValue = {"", "", "$0.00", "0", "$0.00", "$0.00", "$0.00"};
     static String[] btnLabels = {"Compute", "Reset", "Totals", "Exit"};
     static List<TextField> fields = new ArrayList<>();
 
@@ -74,6 +77,7 @@ public class HelloApplication extends Application {
                 lab.setPrefWidth((sceneWidth - 40)*0.24);
                 lab.setText(labels[i]);
                 TextField tf = new TextField();
+                tf.setText(defaultValue[i]);
                 fields.add(tf);
                 tf.setPrefWidth((sceneWidth - 40)*0.76);
                 tmpHbox.getChildren().addAll(lab, tf);
@@ -82,6 +86,7 @@ public class HelloApplication extends Application {
                 lab.setPrefWidth((sceneWidth - 40)*0.24);
                 lab.setText(labels[i]);
                 TextField tf = new TextField();
+                tf.setText(defaultValue[i]);
                 fields.add(tf);
                 tf.setPrefWidth((sceneWidth - 40)*0.45);
                 tmpHbox.getChildren().addAll(lab, tf);
@@ -90,6 +95,10 @@ public class HelloApplication extends Application {
                 lab.setPrefWidth((sceneWidth - 40)*0.24);
                 lab.setText(labels[i]);
                 TextField tf = new TextField();
+                tf.setText(defaultValue[i]);
+                if(i > 3){
+                    tf.setDisable(true);
+                }
                 fields.add(tf);
                 tf.setAlignment(Pos.CENTER_RIGHT);
                 tf.setPrefWidth((sceneWidth - 40)*0.21);
@@ -112,7 +121,7 @@ public class HelloApplication extends Application {
             Button btn = new Button(btnLabels[i]);
             btn.setPrefWidth((sceneWidth - 20)*0.22);
             btn.setStyle("-fx-background-color: #FFD499; -fx-border-color: #f0f0f0; -fx-border-width: 2px; -fx-border-radius: 3px;");
-            if(i == 0) btn = addAction(btn, i);
+            btn = addAction(btn, i);
             btnContainer.getChildren().add(btn);
         }
 
@@ -127,44 +136,77 @@ public class HelloApplication extends Application {
                     int quantity;
 
                     try {
-                        price = Double.parseDouble(fields.get(2).getText().trim());
+                        if(fields.get(2).getText().trim() != "" && fields.get(2).getText().trim().charAt(0) == '$'){
+                            String pr = fields.get(2).getText().trim().substring(1);
+                            price = Double.parseDouble(pr);
+                        }else{
+                            price = Double.parseDouble(fields.get(2).getText().trim());
+                        }
+                        fields.get(2).setStyle("-fx-border-color: #d3d3d3; -fx-border-radius: 3px;");
                     } catch (NumberFormatException err) {
-                        fields.get(2).setStyle("-fx-background-color: rgba(255, 0, 0, 0.3);");
+                        fields.get(2).setStyle("-fx-border-color: #f00; -fx-border-radius: 3px;");
                         return;
                     }
 
                     try {
                         quantity = Integer.parseInt(fields.get(3).getText().trim());
+                        fields.get(3).setStyle("-fx-border-color: #d3d3d3; -fx-border-radius: 3px;");
                     } catch (NumberFormatException err) {
-                        fields.get(2).setStyle("-fx-background-color: rgba(255, 0, 0, 0.3);");
+                        fields.get(3).setStyle("-fx-border-color: #f00; -fx-border-radius: 3px;");
                         return;
                     }
 
-                    fields.get(4).setText(Double.toString(price*quantity));
+                    String subTotal = Double.toString(truncate(truncate(price)*quantity));
+                    fields.get(4).setText("$" + subTotal);
 
                 });
                 break;
             }
             case 1: {
                 btn.setOnAction(e -> {
-
+                    for(int i = 0; i < defaultValue.length; i++){
+                        fields.get(i).setText(defaultValue[i]);
+                    }
                 });
                 break;
             }
             case 2: {
                 btn.setOnAction(e -> {
+                    double tax, subTotal;
+                    try {
+                        String subt = fields.get(4).getText().trim().substring(1);
+                        subTotal = Double.parseDouble(subt);
+                        fields.get(4).setStyle("-fx-border-color: #d3d3d3; -fx-border-radius: 3px;");
+                    } catch (NumberFormatException err) {
+                        fields.get(4).setStyle("-fx-border-color: #f00; -fx-border-radius: 3px;");
+                        return;
+                    }
 
+                    tax = truncate(truncate(subTotal)*0.06);//niit uniin 6%-aar bodson
+                    String salesTax = Double.toString(tax);
+                    fields.get(5).setText("$" + salesTax);
+
+                    double total = truncate(subTotal) + tax;
+                    String totalDue = Double.toString(truncate(total));
+                    fields.get(6).setText("$" + totalDue);
                 });
                 break;
             }
             case 3: {
                 btn.setOnAction(e -> {
-
+                    Platform.exit();
                 });
                 break;
             }
         }
         return btn;
+    }
+
+    public static double truncate(double input) {
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
+        decimalFormat.setRoundingMode(RoundingMode.DOWN);
+        String formatResult = decimalFormat.format(input);
+        return Double.parseDouble(formatResult);
     }
 
     public static void main(String[] args) {
