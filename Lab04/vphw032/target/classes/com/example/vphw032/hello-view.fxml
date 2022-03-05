@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane alignment="CENTER" hgap="5.0" maxHeight="400.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff;" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.vphw032.HelloController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="300.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <HBox maxHeight="65.0" prefHeight="65.0" prefWidth="378.0" spacing="10.0" style="-fx-border-color: #000;" StackPane.alignment="CENTER">
+               <children>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="1st Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtCurrentQtr1" alignment="CENTER_RIGHT" text="12000" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="2nd Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtCurrentQtr2" alignment="CENTER_RIGHT" text="14500" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="3rd Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtCurrentQtr3" alignment="CENTER_RIGHT" text="8500" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="4th Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtCurrentQtr4" alignment="CENTER_RIGHT" text="16800" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: #fff;" text="Current Year's Sales" textAlignment="CENTER" translateX="-125.0" translateY="-32.0" />
+         </children>
+      </StackPane>
+      <Button fx:id="btnClose" maxHeight="60.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="177.0" text="Close" GridPane.columnIndex="1" />
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <HBox maxHeight="65.0" prefHeight="65.0" prefWidth="378.0" spacing="10.0" style="-fx-border-color: #000;" StackPane.alignment="CENTER">
+               <children>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="1st Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtPreviousQtr1" alignment="CENTER_RIGHT" text="10000" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="2nd Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtPreviousQtr2" alignment="CENTER_RIGHT" text="11000" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="3rd Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtPreviousQtr3" alignment="CENTER_RIGHT" text="12500" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="80.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="4th Qtr" textAlignment="RIGHT" />
+                        <TextField fx:id="txtPreviousQtr4" alignment="CENTER_RIGHT" text="15800" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: #fff;" text="Previous Year's Sales" textAlignment="CENTER" translateX="-125.0" translateY="-32.0" />
+         </children>
+      </StackPane>
+      <Button fx:id="btnGenerate" maxHeight="60.0" mnemonicParsing="false" onAction="#generate" onMousePressed="#setBarChartColor" prefHeight="60.0" prefWidth="177.0" text="Generate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <StackPane maxHeight="90.0" prefHeight="17.0" prefWidth="200.0">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="52.0" style="-fx-background-color: #fff;" text="Legend" translateY="-5.0" />
+               </children>
+            </StackPane>
+            <HBox alignment="CENTER" prefHeight="17.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff391f" height="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="17.0" />
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="100.0" text="This Year's Sales" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="17.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="17.0" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Last Year's Sales" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+         </padding>
+      </VBox>
+      <BarChart fx:id="barChart" GridPane.rowIndex="2">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" tickMarkVisible="false" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</GridPane>
