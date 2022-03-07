@@ -53,7 +53,7 @@ public class HelloController {
             return;
         }
 
-        double taxAmount = markedPrice/taxRate;
+        double taxAmount = markedPrice*(taxRate/100);
         tax_mount.setText("$" + truncate(taxAmount));
 
         double netPrice = markedPrice + taxAmount;
