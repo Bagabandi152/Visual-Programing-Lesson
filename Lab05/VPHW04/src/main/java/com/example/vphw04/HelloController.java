@@ -85,9 +85,7 @@ public class HelloController {
     }
 
     void calculate(){
-        double dPrincipal = 0.00D, dInterestRate = 0.00D,
-                dPeriods = 0.00D;
-        double dInterestEarned, dFutureValue;
+        double dPrincipal = 0.00D, dInterestRate = 0.00D;
         double periodsValue = 0;
         Date startDate, endDate;
 
@@ -168,7 +166,6 @@ public class HelloController {
     @FXML
     void close(ActionEvent event) {
         Platform.exit();
-        txtPrincipal.textProperty().removeListener();   
     }
 
     public static String truncate(double input) {
