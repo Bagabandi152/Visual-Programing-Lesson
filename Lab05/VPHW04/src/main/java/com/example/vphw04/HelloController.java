@@ -168,6 +168,7 @@ public class HelloController {
     @FXML
     void close(ActionEvent event) {
         Platform.exit();
+        txtPrincipal.textProperty().removeListener();   
     }
 
     public static String truncate(double input) {
