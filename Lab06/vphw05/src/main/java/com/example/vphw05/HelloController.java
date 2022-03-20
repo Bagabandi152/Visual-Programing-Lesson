@@ -83,6 +83,7 @@ public class HelloController {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 tfStyle.setText(t1);
+                toChange();
             }
         });
 
@@ -140,13 +141,14 @@ public class HelloController {
 
     void toChange() {
 
-        BooleanProperty underl = new SimpleBooleanProperty(underline.isSelected());
+        BooleanProperty underLine = new SimpleBooleanProperty(underline.isSelected());
+        sampleTxt.setUnderline(underLine.getValue());
         sampleTxt.setTextFill(colorIdent.getFill());
 
-        StringProperty fontname = new SimpleStringProperty(tfFont.getText());
-        StringProperty fontsize = new SimpleStringProperty(tfSize.getText());
+        StringProperty fontName = new SimpleStringProperty(tfFont.getText());
+        StringProperty fontSize = new SimpleStringProperty(tfSize.getText());
 
-        Font ft = new Font(fontname.getValue(), Double.parseDouble(fontsize.getValue()));
+        Font ft = new Font(fontName.getValue(), Double.parseDouble(fontSize.getValue()));
         StringProperty fontStyle = new SimpleStringProperty(tfStyle.getText());
 
         if(fontStyle.getValue().toUpperCase().equals("REGULAR")){
