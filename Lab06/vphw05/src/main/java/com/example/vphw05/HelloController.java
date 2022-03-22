@@ -6,19 +6,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.converter.FontConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 
 public class HelloController {
@@ -71,7 +66,7 @@ public class HelloController {
         lvFont.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                tfFont.setText(t1);
+                tfFont.setText(t1.trim());
             }
         });
 
@@ -83,7 +78,6 @@ public class HelloController {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 tfStyle.setText(t1);
-                toChange();
             }
         });
 
@@ -106,9 +100,9 @@ public class HelloController {
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 IntegerProperty idx = new SimpleIntegerProperty(colors.indexOf(t1));
                 colorIdent.setFill(colorList.get(idx.getValue()));
+                toChange();
             }
         });
-
 
         tfFont.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -131,49 +125,51 @@ public class HelloController {
             }
         });
 
-        underline.textProperty().addListener(new ChangeListener<String>() {
+        underline.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                toChange();
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+                sampleTxt.setUnderline(t1);
             }
         });
     }
 
     void toChange() {
-
-        BooleanProperty underLine = new SimpleBooleanProperty(underline.isSelected());
-        sampleTxt.setUnderline(underLine.getValue());
         sampleTxt.setTextFill(colorIdent.getFill());
 
         StringProperty fontName = new SimpleStringProperty(tfFont.getText());
-        StringProperty fontSize = new SimpleStringProperty(tfSize.getText());
-
-        Font ft = new Font(fontName.getValue(), Double.parseDouble(fontSize.getValue()));
         StringProperty fontStyle = new SimpleStringProperty(tfStyle.getText());
+        DoubleProperty fontSize = new SimpleDoubleProperty(Double.parseDouble(tfSize.getText()));
+        FontWeight fontWeight;
+        FontPosture fontPosture;
 
-        if(fontStyle.getValue().toUpperCase().equals("REGULAR")){
-            sampleTxt.setStyle("-fx-font-weight: normal;");
+        switch (fontStyle.getValue().toUpperCase()){
+            case "BOLD":{
+                fontWeight = FontWeight.BOLD;
+                fontPosture = FontPosture.REGULAR;
+                break;
+            }
+            case "ITALIC":{
+                fontWeight = FontWeight.NORMAL;
+                fontPosture = FontPosture.ITALIC;
+                break;
+            }
+            case "BOLD ITALIC":{
+                fontWeight = FontWeight.BOLD;
+                fontPosture = FontPosture.ITALIC;
+                break;
+            }
+            default:{
+                fontWeight = FontWeight.NORMAL;
+                fontPosture = FontPosture.REGULAR;
+                break;
+            }
         }
 
-        if(fontStyle.getValue().toUpperCase().equals("ITALIC")){
-            sampleTxt.setStyle("-fx-font-style: italic;");
-        }
-
-        if(fontStyle.getValue().toUpperCase().equals("BOLD")){
-            sampleTxt.setStyle("-fx-font-weight: bold;");
-        }
-
-        if(fontStyle.getValue().toUpperCase().equals("BOLD ITALIC")){
-            sampleTxt.setStyle("-fx-font-weight: bold;");
-            sampleTxt.setStyle("-fx-font-style: italic;");
-        }
-
-        sampleTxt.setFont(ft);
+        sampleTxt.setFont(Font.font(fontName.getValue(), fontWeight, fontPosture, fontSize.getValue()));
     }
 
     @FXML
     void close(ActionEvent event){
         Platform.exit();
     }
-
 }
