@@ -1,0 +1,77 @@
+package com.example.vphw06;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class CustomerEditorController {
+
+    @FXML
+    private Button btnCancel;
+
+    @FXML
+    private Button btnOk;
+
+    @FXML
+    private TextField txtAccountNumber;
+
+    @FXML
+    private TextField txtEmergencyName;
+
+    @FXML
+    private TextField txtEmergencyPhone;
+
+    @FXML
+    private TextField txtFirstName;
+
+    @FXML
+    private TextField txtLastName;
+
+    @FXML
+    private TextField txtPhoneNumber;
+
+    public int accountNumber;
+    public String fName;
+    public String lName;
+    public String phoneNum;
+    public String emergeName;
+    public String emergePhone;
+
+    @FXML
+    void close(ActionEvent event) throws Exception {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.setTitle("Customers Records");
+        stage.setWidth(550);
+        stage.setHeight(300);
+        Scene scene = stage.getScene();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customers-view.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+
+        scene.setRoot(root);
+    }
+
+    @FXML
+    void saveCustomer(ActionEvent event) {
+        try{
+            this.accountNumber = Integer.parseInt(txtAccountNumber.toString());
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+        this.fName = txtFirstName.toString();
+        this.lName = txtLastName.toString();
+        this.phoneNum = txtPhoneNumber.toString();
+        this.emergeName = txtEmergencyName.toString();
+        this.emergePhone = txtEmergencyPhone.toString();
+
+        CustomerController customers = new CustomerController();
+        customers.tvwCustomers.getItems().addAll(Integer.toString(accountNumber), fName, lName, phoneNum, emergeName, emergePhone);
+    }
+}

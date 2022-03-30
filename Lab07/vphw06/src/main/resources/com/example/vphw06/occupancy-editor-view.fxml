@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="365.0" style="-fx-background-color: #fff;" vgap="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw06.OccupancyEditorController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="2.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label prefHeight="17.0" prefWidth="170.0" text="Date Occupied:" />
+      <Label prefHeight="17.0" prefWidth="168.0" text="Employee #:" GridPane.rowIndex="2" />
+      <Label prefHeight="17.0" prefWidth="199.0" text="Customer #: " GridPane.rowIndex="4" />
+      <Button fx:id="btnOk" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+      <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+      <Label prefHeight="17.0" prefWidth="109.0" text="Room Number:" GridPane.rowIndex="6" />
+      <Label prefHeight="17.0" prefWidth="108.0" text="Rate Applied: " GridPane.rowIndex="8" />
+      <Label prefHeight="17.0" prefWidth="120.0" text="Occupancy #:" GridPane.rowIndex="10" />
+      <TextField fx:id="txtRateApplied" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <Label prefHeight="17.0" prefWidth="108.0" text="Phone Use: " GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      <TextField fx:id="txtPhoneUse" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <TextField fx:id="txtOccupancyNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <TextField fx:id="txtCustomerNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="txtRoomNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="txtRoomDescription" alignment="CENTER_RIGHT" maxWidth="454.0" prefHeight="25.0" prefWidth="454.0" GridPane.columnSpan="4" GridPane.rowIndex="7" />
+      <TextField fx:id="txtEmployeeNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="txtEmployeeName" alignment="CENTER_RIGHT" maxWidth="206.0" prefHeight="25.0" prefWidth="206.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <TextField fx:id="txtCustomerName" alignment="CENTER_RIGHT" maxWidth="225.0" prefHeight="25.0" prefWidth="225.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <DatePicker fx:id="dtpDateOccupied" prefHeight="25.0" prefWidth="322.0" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+      <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="9" />
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="78.0" style="-fx-background-color: #fff;" text="Processed by " translateX="-124.0" />
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="3">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="78.0" style="-fx-background-color: #fff;" text="Processed For " translateX="-124.0" />
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="5">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="78.0" style="-fx-background-color: #fff;" text="Room Rented " translateX="-124.0" />
+         </children>
+      </StackPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</GridPane>

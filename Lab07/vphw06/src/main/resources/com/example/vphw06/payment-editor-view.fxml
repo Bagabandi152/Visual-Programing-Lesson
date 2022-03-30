@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="517.0" style="-fx-background-color: #fff;" vgap="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw06.PaymentEditorController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="120.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="2.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label prefHeight="17.0" prefWidth="170.0" text="Payment Date:" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="168.0" text="Employee #:" GridPane.rowIndex="2" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="199.0" text="Occupancy #:" GridPane.rowIndex="4" />
+      <Button fx:id="btnOk" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="OK" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+      <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Cancel" GridPane.columnIndex="4" GridPane.rowIndex="17" />
+      <Label prefHeight="17.0" prefWidth="127.0" text="Phone Use:" GridPane.rowIndex="10" />
+      <Label prefHeight="17.0" prefWidth="120.0" text="Receipt #:" GridPane.rowIndex="17" />
+      <TextField fx:id="txtReceiptNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+      <TextField fx:id="txtOccupancyNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="txtPhoneUse" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <TextField fx:id="txtEmployeeNumber" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="txtEmployeeName" alignment="CENTER_RIGHT" maxWidth="329.0" prefHeight="25.0" prefWidth="329.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+      <TextField fx:id="txtOccupancyDetails" alignment="CENTER_RIGHT" maxWidth="376.0" prefHeight="25.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+      <DatePicker fx:id="dtpPaymentDate" prefHeight="25.0" prefWidth="413.0" GridPane.columnIndex="1" GridPane.columnSpan="4" />
+      <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="16" />
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="1">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="125.0" style="-fx-background-color: #fff;" text="Payment Processed by " translateX="-175.0" />
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="3">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="125.0" style="-fx-background-color: #fff;" text="Payment for Customer " translateX="-175.0" />
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="9">
+         <children>
+            <Separator prefWidth="317.0" translateY="8.0" valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="51.0" style="-fx-background-color: #fff;" text="Payment" translateX="-213.0" />
+         </children>
+      </StackPane>
+      <Label prefHeight="17.0" prefWidth="136.0" text="Room Occupied From:" GridPane.rowIndex="6" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="165.0" text="To:" GridPane.rowIndex="7" />
+      <DatePicker fx:id="dtpFirstDateOccupied" prefHeight="25.0" prefWidth="352.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" />
+      <DatePicker fx:id="dtpLastDateOccupied" prefHeight="25.0" prefWidth="385.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="7" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="95.0" text="Total Nights:" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      <TextField fx:id="txtTotalNights" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="1" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <Label prefHeight="17.0" prefWidth="127.0" text="Amt Charged:" GridPane.columnIndex="2" GridPane.rowIndex="10">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="127.0" text="Sub-Total:" GridPane.columnIndex="2" GridPane.rowIndex="11">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <TextField fx:id="txtAmountCharged" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+      <TextField fx:id="txtSubTotal" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+      <Label prefHeight="17.0" prefWidth="127.0" text="/night" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+      <Button fx:id="btnCalculate" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Calculate" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="12" />
+      <Label prefHeight="17.0" prefWidth="127.0" text="Tax Rate:" GridPane.columnIndex="2" GridPane.rowIndex="13">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="127.0" text="Tax Amount:" GridPane.columnIndex="2" GridPane.rowIndex="14">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="127.0" text="Amount Paid:" GridPane.columnIndex="2" GridPane.rowIndex="15">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <TextField fx:id="txtTaxRate" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="7.70" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+      <TextField fx:id="txtTaxAmount" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+      <TextField fx:id="txtTotalAmountPaid" alignment="CENTER_RIGHT" maxWidth="100.0" prefHeight="25.0" prefWidth="90.0" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+      <Label prefHeight="17.0" prefWidth="127.0" text="\%" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</GridPane>
