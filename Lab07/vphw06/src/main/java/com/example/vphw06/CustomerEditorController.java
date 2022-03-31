@@ -1,5 +1,6 @@
 package com.example.vphw06;
 
+import Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,13 +37,6 @@ public class CustomerEditorController {
     @FXML
     private TextField txtPhoneNumber;
 
-    public int accountNumber;
-    public String fName;
-    public String lName;
-    public String phoneNum;
-    public String emergeName;
-    public String emergePhone;
-
     @FXML
     void close(ActionEvent event) throws Exception {
         Node node = (Node) event.getSource();
@@ -60,18 +54,14 @@ public class CustomerEditorController {
 
     @FXML
     void saveCustomer(ActionEvent event) {
-        try{
-            this.accountNumber = Integer.parseInt(txtAccountNumber.toString());
-        }catch (NumberFormatException e){
-            e.printStackTrace();
-        }
-        this.fName = txtFirstName.toString();
-        this.lName = txtLastName.toString();
-        this.phoneNum = txtPhoneNumber.toString();
-        this.emergeName = txtEmergencyName.toString();
-        this.emergePhone = txtEmergencyPhone.toString();
-
-        CustomerController customers = new CustomerController();
-        customers.tvwCustomers.getItems().addAll(Integer.toString(accountNumber), fName, lName, phoneNum, emergeName, emergePhone);
+        Customer newCustomer = new Customer(
+                txtAccountNumber.toString(),
+                txtFirstName.toString(),
+                txtLastName.toString(),
+                txtPhoneNumber.toString(),
+                txtEmergencyName.toString(),
+                txtEmergencyPhone.toString());
+        CustomerController customerController = new CustomerController();
+        customerController.tvwCustomers.getItems().add(newCustomer);
     }
 }

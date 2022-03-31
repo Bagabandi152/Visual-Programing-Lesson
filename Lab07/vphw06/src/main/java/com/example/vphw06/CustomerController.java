@@ -1,5 +1,6 @@
 package com.example.vphw06;
 
+import Model.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class CustomerController {
     private Button btnNewCustomer;
 
     @FXML
-    public TableView<String> tvwCustomers;
+    public TableView<Customer> tvwCustomers;
 
 
     @FXML
@@ -27,14 +28,12 @@ public class CustomerController {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.setTitle("Customer Editor");
-        stage.setWidth(3);
+        stage.setWidth(332);
         stage.setHeight(277);
-
         Scene scene = stage.getScene();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customer-editor-view.fxml"));
         Parent root = (Parent) fxmlLoader.load();
-
         scene.setRoot(root);
     }
 

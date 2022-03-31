@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="342.0" vgap="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.example.vphw06.CustomerEditorController">
+<GridPane hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="332.0" vgap="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw06.CustomerEditorController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="200.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="100.0" />
@@ -36,8 +36,8 @@
       <TextField fx:id="txtPhoneNumber" maxWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
       <TextField fx:id="txtEmergencyName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
       <TextField fx:id="txtEmergencyPhone" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-      <Button fx:id="btnOk" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button fx:id="btnOk" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="25.0" prefWidth="119.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="124.0" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="6" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
