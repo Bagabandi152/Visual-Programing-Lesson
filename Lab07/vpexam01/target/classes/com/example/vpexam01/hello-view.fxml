@@ -311,16 +311,16 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tvStudents" maxHeight="350.0" prefHeight="350.0" prefWidth="200.0">
+                  <TableView maxHeight="350.0" prefHeight="350.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn fx:id="stuIdcol" prefWidth="109.0" text="STUDENT ID" />
-                      <TableColumn fx:id="fnameCol" prefWidth="86.0" text="Firstname" />
-                        <TableColumn fx:id="lnameCol" prefWidth="88.0" text="Lastname" />
-                        <TableColumn fx:id="attScoreCol" prefWidth="55.0" text="20" />
-                        <TableColumn fx:id="attEgCol" prefWidth="67.0" text="EG" />
-                        <TableColumn fx:id="proScoreCol" prefWidth="59.0" text="100" />
-                        <TableColumn fx:id="proEgCol" prefWidth="73.0" text="EG" />
-                        <TableColumn fx:id="preGradeCol" prefWidth="92.0" text="Prelim Grade" />
+                      <TableColumn fx:id="tvStudents" prefWidth="109.0" text="STUDENT ID" />
+                      <TableColumn prefWidth="86.0" text="Firstname" />
+                        <TableColumn prefWidth="88.0" text="Lastname" />
+                        <TableColumn prefWidth="55.0" text="20" />
+                        <TableColumn prefWidth="67.0" text="EG" />
+                        <TableColumn prefWidth="59.0" text="100" />
+                        <TableColumn prefWidth="73.0" text="EG" />
+                        <TableColumn prefWidth="92.0" text="Prelim Grade" />
                     </columns>
                   </TableView>
                </children>
