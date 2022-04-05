@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="150.0" prefWidth="596.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw07.TableViewController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+   <children>
+      <TableView fx:id="mainTV" editable="true" prefHeight="200.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="fullNameCol" prefWidth="120.0" text="Full Name" />
+          <TableColumn fx:id="favoriteColorCol" prefWidth="101.0" text="Favorite Color" />
+            <TableColumn fx:id="sportCol" minWidth="0.0" prefWidth="120.0" text="Sport" />
+            <TableColumn fx:id="yearCol" prefWidth="100.0" text="# of Years" />
+            <TableColumn fx:id="vegetarianCol" prefWidth="120.0" text="Vegetarian" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>
