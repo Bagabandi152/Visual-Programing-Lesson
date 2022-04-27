@@ -1,6 +1,7 @@
 module com.example.vphw08withdb {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.vphw08withdb to javafx.fxml;

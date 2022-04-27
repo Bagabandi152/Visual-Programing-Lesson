@@ -40,8 +40,6 @@ class ItemCategoryStage{
     }
 }
 
-
-
 class PartEditorStage{
     PartEditorStage() throws IOException {
         Stage mainStage = new Stage();
