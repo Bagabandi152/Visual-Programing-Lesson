@@ -120,7 +120,6 @@ public class MainController {
         assert txtSubTotal != null : "fx:id=\"txtSubTotal\" was not injected: check your FXML file 'main-pv.fxml'.";
         assert txtTaxAmount != null : "fx:id=\"txtTaxAmount\" was not injected: check your FXML file 'main-pv.fxml'.";
         assert txtTaxRate != null : "fx:id=\"txtTaxRate\" was not injected: check your FXML file 'main-pv.fxml'.";
-
     }
 
 }
