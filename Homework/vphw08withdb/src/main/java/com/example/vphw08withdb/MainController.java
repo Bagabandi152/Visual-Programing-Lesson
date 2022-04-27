@@ -2,6 +2,8 @@ package com.example.vphw08withdb;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.vphw08withdb.Model.PartDescription;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -35,31 +37,31 @@ public class MainController {
     private Button btnSave;
 
     @FXML
-    private TableColumn<?, ?> colPartName;
+    private TableColumn<PartDescription, String> colPartName;
 
     @FXML
-    private TableColumn<?, ?> colPartNameSelected;
+    private TableColumn<PartDescription, String> colPartNameSelected;
 
     @FXML
-    private TableColumn<?, ?> colPartNumber;
+    private TableColumn<PartDescription, Integer> colPartNumber;
 
     @FXML
-    private TableColumn<?, ?> colPartNumberSelected;
+    private TableColumn<PartDescription, Integer> colPartNumberSelected;
 
     @FXML
-    private TableColumn<?, ?> colQuantitySelected;
+    private TableColumn<PartDescription, Double> colQuantitySelected;
 
     @FXML
-    private TableColumn<?, ?> colSubTotalSelected;
+    private TableColumn<PartDescription, Double> colSubTotalSelected;
 
     @FXML
-    private TableColumn<?, ?> colUnitPrice;
+    private TableColumn<PartDescription, Integer> colUnitPrice;
 
     @FXML
-    private TableColumn<?, ?> colUnitPriceSelected;
+    private TableColumn<PartDescription, Double> colUnitPriceSelected;
 
     @FXML
-    private TreeView<?> tvwAutoParts;
+    private TreeView<PartDescription> tvwAutoParts;
 
     @FXML
     private TextField txtOpen;
