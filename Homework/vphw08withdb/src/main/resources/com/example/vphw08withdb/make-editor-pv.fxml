@@ -24,8 +24,8 @@
       <TextField fx:id="txtMake" GridPane.columnIndex="1" GridPane.columnSpan="2" />
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btnOK" maxWidth="100.0" mnemonicParsing="false" prefWidth="90.0" text="OK" />
-            <Button fx:id="btnCancel" maxWidth="100.0" mnemonicParsing="false" prefWidth="90.0" text="Cancel" />
+            <Button fx:id="btnOK" maxWidth="100.0" mnemonicParsing="false" onAction="#addMake" prefWidth="90.0" text="OK" />
+            <Button fx:id="btnCancel" maxWidth="100.0" mnemonicParsing="false" onAction="#cancel" prefWidth="90.0" text="Cancel" />
          </children>
       </HBox>
    </children>

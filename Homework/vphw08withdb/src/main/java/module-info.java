@@ -6,4 +6,6 @@ module com.example.vphw08withdb {
 
     opens com.example.vphw08withdb to javafx.fxml;
     exports com.example.vphw08withdb;
+    exports  com.example.vphw08withdb.Model;
+    exports com.example.vphw08withdb.DBHandler;
 }

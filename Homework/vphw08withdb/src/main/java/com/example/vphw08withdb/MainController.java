@@ -1,9 +1,12 @@
 package com.example.vphw08withdb;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.vphw08withdb.Model.PartDescription;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -11,12 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeView;
 
 public class MainController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button btnAdd;
@@ -120,6 +117,36 @@ public class MainController {
         assert txtSubTotal != null : "fx:id=\"txtSubTotal\" was not injected: check your FXML file 'main-pv.fxml'.";
         assert txtTaxAmount != null : "fx:id=\"txtTaxAmount\" was not injected: check your FXML file 'main-pv.fxml'.";
         assert txtTaxRate != null : "fx:id=\"txtTaxRate\" was not injected: check your FXML file 'main-pv.fxml'.";
+    }
+
+    @FXML
+    void addOrSelect(ActionEvent event) {
+
+    }
+
+    @FXML
+    void close(ActionEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void newAutoPart(ActionEvent event) throws IOException {
+        new PartEditorStage();
+    }
+
+    @FXML
+    void newCustomerOrder(ActionEvent event) {
+
+    }
+
+    @FXML
+    void open(ActionEvent event) {
+
+    }
+
+    @FXML
+    void save(ActionEvent event) {
+
     }
 
 }

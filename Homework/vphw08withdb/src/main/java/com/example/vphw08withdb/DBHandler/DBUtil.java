@@ -12,9 +12,9 @@ import java.sql.Statement;
 public class DBUtil {
     private Connection connDB;
 
-    DBUtil(){
+    public DBUtil(){
         try {
-            connDB = DriverManager.getConnection("jdbc:mysql://localhost:3306/college_park_auto_parts","root","");
+            connDB = DriverManager.getConnection("jdbc:mysql://localhost:3306/college_park_auto_parts","root","root");
         }
         catch (Exception e){
             e.printStackTrace();

@@ -1,19 +1,18 @@
 package com.example.vphw08withdb;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class PartEditorController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button btnClose;
@@ -31,13 +30,13 @@ public class PartEditorController {
     private Button btnSubmit;
 
     @FXML
-    private ComboBox<?> cbxCategories;
+    private ComboBox<String> cbxCategories;
 
     @FXML
-    private ComboBox<?> cbxMakes;
+    private ComboBox<String> cbxMakes;
 
     @FXML
-    private ComboBox<?> cbxModels;
+    private ComboBox<String> cbxModels;
 
     @FXML
     private TextField txtItemNumber;
@@ -65,6 +64,31 @@ public class PartEditorController {
         assert txtPartName != null : "fx:id=\"txtPartName\" was not injected: check your FXML file 'part-editor-pv.fxml'.";
         assert txtPartNumber != null : "fx:id=\"txtPartNumber\" was not injected: check your FXML file 'part-editor-pv.fxml'.";
         assert txtUnitPrice != null : "fx:id=\"txtUnitPrice\" was not injected: check your FXML file 'part-editor-pv.fxml'.";
+
+    }
+
+    @FXML
+    void close(ActionEvent event) {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+
+    @FXML
+    void newCategory(ActionEvent event) throws IOException {
+        new ItemCategoryStage();
+    }
+
+    @FXML
+    void newMake(ActionEvent event) throws IOException {
+        new MakeEditorStage();
+    }
+
+    @FXML
+    void newModel(ActionEvent event) throws IOException {
+        new ModelEditorStage();
+    }
+
+    @FXML
+    void submit(ActionEvent event) {
 
     }
 
