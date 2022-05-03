@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,12 +21,12 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public class PuzzleGame extends Application {
 
-//    private Image image = new Image("http://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/ferrari-laferrari-zfye-059_1.jpg?itok=hfLNxUD9",600,600,false,true);
-
-    private Image image;
+    private Image image = new Image("https://assets.puzzlefactory.pl/puzzle/227/751/original.jpg",600,600,false,true);
 
     private static double SCENE_WIDTH = 1024;
     private static double SCENE_HEIGHT = 768;
@@ -42,23 +43,14 @@ public class PuzzleGame extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        try {
-            File file = new File("src\\main\\resources\\com\\example\\vphw_puzzle_game09\\images\\zebra.jpg");
-            image = new Image(file.toURI().toString());
-        } catch(Exception ex){
-            ex.printStackTrace();
-        }
-
-        // create grid
         for (int x = 0; x < TILE_ROW_COUNT; x++) {
             for (int y = 0; y < TILE_COLUMN_COUNT; y++) {
 
-                // create tile
                 ImageView tile = new ImageView(image);
                 Rectangle2D rect = new Rectangle2D(TILE_SIZE * x, TILE_SIZE * y, TILE_SIZE, TILE_SIZE);
                 tile.setViewport(rect);
+                tile.setStyle("-fx-background-color: #000;");
 
-                // consider empty cell, let it remain empty
                 if (x == (TILE_ROW_COUNT - 1) && y == (TILE_COLUMN_COUNT - 1)) {
                     tile = null;
                 }
@@ -67,35 +59,31 @@ public class PuzzleGame extends Application {
             }
         }
 
-        // shuffle cells
         shuffle();
 
-        // create playfield
         Pane pane = new Pane();
 
-        // put tiles on playfield, assign event handler
         for (int i = 0; i < cells.size(); i++) {
 
             Cell cell = cells.get(i);
 
             Node imageView = cell.getImageView();
 
-            // consider empty cell
             if (imageView == null)
                 continue;
 
-            // click-handler: swap tiles, check if puzzle is solved
             imageView.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
 
                 moveCell((Node) mouseEvent.getSource());
 
             });
 
-            // position images on scene
             imageView.relocate(cell.getLayoutX(), cell.getLayoutY());
 
             pane.getChildren().add(cell.getImageView());
         }
+
+        pane.setStyle("-fx-background-color: #d3d3d3;");
 
         Scene scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
         primaryStage.setScene(scene);
@@ -103,9 +91,6 @@ public class PuzzleGame extends Application {
 
     }
 
-    /**
-     * Swap images of cells randomly
-     */
     public void shuffle() {
 
         Random rnd = new Random();
@@ -118,7 +103,6 @@ public class PuzzleGame extends Application {
             if (a == b)
                 continue;
 
-            // skip bottom right cell swap, we want the empty cell to remain there
             if( cells.get(a).isEmpty() || cells.get(b).isEmpty())
                 continue;
 
@@ -180,14 +164,12 @@ public class PuzzleGame extends Application {
         if (emptyCell == null)
             return;
 
-        // check if cells are swappable: neighbor distance either x or y must be 1 for a valid move
         int steps = Math.abs(currentCell.x - emptyCell.x) + Math.abs(currentCell.y - emptyCell.y);
         if (steps != 1)
             return;
 
         System.out.println("Transition: " + currentCell + " -> " + emptyCell);
 
-        // cells are swappable => create path transition
         Path path = new Path();
         path.getElements().add(new MoveToAbs(currentCell.getImageView(), currentCell.getLayoutX(), currentCell.getLayoutY()));
         path.getElements().add(new LineToAbs(currentCell.getImageView(), emptyCell.getLayoutX(), emptyCell.getLayoutY()));
@@ -254,29 +236,28 @@ public class PuzzleGame extends Application {
             return this.initialImageView == currentImageView;
         }
 
-        public String toString() {
+        @Contract(pure = true)
+        public @NotNull String toString() {
             return "[" + x + "," + y + "]";
         }
 
     }
 
-    // absolute (layoutX/Y) transitions using the pathtransition for MoveTo
     public static class MoveToAbs extends MoveTo {
 
-        public MoveToAbs(Node node) {
+        public MoveToAbs(@NotNull Node node) {
             super(node.getLayoutBounds().getWidth() / 2, node.getLayoutBounds().getHeight() / 2);
         }
 
-        public MoveToAbs(Node node, double x, double y) {
+        public MoveToAbs(@NotNull Node node, double x, double y) {
             super(x - node.getLayoutX() + node.getLayoutBounds().getWidth() / 2, y - node.getLayoutY() + node.getLayoutBounds().getHeight() / 2);
         }
 
     }
 
-    // absolute (layoutX/Y) transitions using the pathtransition for LineTo
     public static class LineToAbs extends LineTo {
 
-        public LineToAbs(Node node, double x, double y) {
+        public LineToAbs(@NotNull Node node, double x, double y) {
             super(x - node.getLayoutX() + node.getLayoutBounds().getWidth() / 2, y - node.getLayoutY() + node.getLayoutBounds().getHeight() / 2);
         }
 
