@@ -1,7 +1,15 @@
 package com.example.vphw_puzzle_game09;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -26,19 +34,20 @@ import org.jetbrains.annotations.NotNull;
 
 public class PuzzleGame extends Application {
 
-    private Image image = new Image("https://assets.puzzlefactory.pl/puzzle/227/751/original.jpg",600,600,false,true);
+    private Image image = new Image("https://thumbs.dreamstime.com/b/zebra-white-28826120.jpg",600,600,false,true);
 
     private static double SCENE_WIDTH = 1024;
-    private static double SCENE_HEIGHT = 768;
+    private static double SCENE_HEIGHT = 800;
 
-    public static int TILE_ROW_COUNT = 5;
-    public static int TILE_COLUMN_COUNT = 5;
-    public static double TILE_SIZE = 120;
+    public static int TILE_ROW_COUNT = 3;
+    public static int TILE_COLUMN_COUNT = 3;
+    public static double TILE_SIZE = 200;
 
     public static double offsetX = (SCENE_WIDTH - TILE_ROW_COUNT * TILE_SIZE) / 2;
     public static double offsetY = (SCENE_HEIGHT - TILE_COLUMN_COUNT * TILE_SIZE) / 2;
 
     List<Cell> cells = new ArrayList<>();
+    Label label;
 
     @Override
     public void start(Stage primaryStage) {
@@ -73,7 +82,6 @@ public class PuzzleGame extends Application {
                 continue;
 
             imageView.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-
                 moveCell((Node) mouseEvent.getSource());
 
             });
@@ -85,7 +93,17 @@ public class PuzzleGame extends Application {
 
         pane.setStyle("-fx-background-color: #d3d3d3;");
 
-        Scene scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
+        VBox vBox = new VBox(0);
+        vBox.setAlignment(Pos.CENTER);
+        HBox hBox = new HBox(10);
+        hBox.setPrefHeight(100);
+        hBox.setAlignment(Pos.CENTER);
+        label = new Label("Unsolved");
+        label.setTextFill(Color.RED);
+        hBox.getChildren().add(label);
+        vBox.getChildren().addAll(pane, hBox);
+
+        Scene scene = new Scene(vBox, SCENE_WIDTH, SCENE_HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -187,7 +205,13 @@ public class PuzzleGame extends Application {
 
             swap( cellA, cellB);
 
-            checkSolved();
+            if(checkSolved()){
+                label.setText("Solved");
+                label.setTextFill(Color.GREEN);
+            }else{
+                label.setText("Unsolved");
+                label.setTextFill(Color.RED);
+            }
 
         });
 
