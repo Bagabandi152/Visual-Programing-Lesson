@@ -151,7 +151,6 @@ public class PuzzleGame extends Application {
         if (currentCell == null)
             return;
 
-        // get empty cell
         Cell emptyCell = null;
 
         for (Cell tmpCell : cells) {
