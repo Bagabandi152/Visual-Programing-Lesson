@@ -24,7 +24,7 @@ public class JavaCallJasperReport {
     public static void main(String[] args) throws JRException,
             ClassNotFoundException, SQLException {
 
-        String reportSrcFile = "F:/StyledTextReport/StyledTextReport.jrxml";
+        String reportSrcFile = "D:\\Github\\Visual-Programing-Lesson\\Lab13\\StyledTextReport\\StyledTextReport.jrxml";
 
         // First, compile jrxml file.
         JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
@@ -37,7 +37,7 @@ public class JavaCallJasperReport {
         JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
         // Make sure the output directory exists.
-        File outDir = new File("F:/jasperoutput");
+        File outDir = new File("D:\\Github\\Visual-Programing-Lesson\\Lab13\\jasperoutput");
         outDir.mkdirs();
 
         // PDF Exportor.
@@ -48,7 +48,7 @@ public class JavaCallJasperReport {
         exporter.setExporterInput(exporterInput);
 
         // ExporterOutput
-        OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput("F:/jasperoutput/StyledTextReport.pdf");
+        OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput("D:\\Github\\Visual-Programing-Lesson\\Lab13\\jasperoutput\\StyledTextReport.pdf");
         // Output
         exporter.setExporterOutput(exporterOutput);
 
