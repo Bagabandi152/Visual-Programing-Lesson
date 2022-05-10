@@ -159,6 +159,26 @@ public class DiceController {
                     }
                 });
 
+//        Thread thread = new Thread(){
+//            public void run(){
+//                System.out.println("Thread Running");
+//                try {
+//                    for (int i = 1; i <= 100; i++) {
+//                        File file = new File("src\\main\\resources\\com\\example\\vplab12\\Dice\\Dice" + (random.nextInt(6)+1)+".png");
+//                        diceImage.setImage(new Image(file.toURI().toString()));
+//                        pbRolling.setProgress(i/100.0);
+//                        piRolling.setProgress(i/100.0);
+//                        Thread.sleep(450);
+//                    }
+//                    rollButton.setDisable(false);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//
+//        thread.start();
+
         diceService.start();
     }
 }
