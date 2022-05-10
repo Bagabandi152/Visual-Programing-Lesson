@@ -13,12 +13,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vplab12.DiceController">
     <children>
-        <ImageView fx:id="diceImage" fitHeight="200.0" fitWidth="200.0" layoutX="92.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="diceImage" fitHeight="200.0" fitWidth="200.0" layoutX="100.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Dice/Dice1.png" />
             </image>
         </ImageView>
-        <Button fx:id="rollButton" layoutX="379.0" layoutY="163.0" mnemonicParsing="false" onAction="#roll" text="Roll">
+        <Button fx:id="rollButton" layoutX="389.0" layoutY="163.0" mnemonicParsing="false" onAction="#roll" text="Roll">
             <font>
                 <Font size="35.0" />
             </font></Button>
@@ -39,6 +39,11 @@
       <HBox alignment="CENTER" layoutY="300.0" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
          <children>
             <Button fx:id="btnReset" mnemonicParsing="false" onAction="#onReset" prefHeight="50.0" prefWidth="105.0" text="Reset">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRestart" mnemonicParsing="false" onAction="#onRestart" prefHeight="50.0" prefWidth="105.0" text="Reroll">
                <font>
                   <Font size="24.0" />
                </font>

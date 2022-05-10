@@ -15,22 +15,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
-import java.util.List;
 import java.util.Random;
 
 public class DiceController {
 
-    Random random = new Random();
-
     @FXML
     private ImageView diceImage;
-
 
     @FXML
     private Button btnCancel;
 
     @FXML
     private Button btnReset;
+
+    @FXML
+    private Button btnRestart;
 
     @FXML
     private Button rollButton;
@@ -41,24 +40,96 @@ public class DiceController {
     @FXML
     private ProgressIndicator piRolling;
 
-//    private DiceService diceService;
     private Service<ObservableList<Image>> diceService;
 
     @FXML
     void onCancel(ActionEvent event) {
         rollButton.setDisable(false);
         btnCancel.setDisable(true);
-//        diceService.cancel(true);
-        pbRolling.progressProperty().unbind();
-        piRolling.progressProperty().unbind();
-
-        pbRolling.setProgress(0);
-        piRolling.setProgress(0);
+        diceService.cancel();
     }
 
     @FXML
     void onReset(ActionEvent event) {
+        diceService.reset();
+        btnCancel.setDisable(true);
+    }
 
+    @FXML
+    void onRestart(ActionEvent event) {
+        pbRolling.setProgress(0);
+        piRolling.setProgress(0);
+        btnCancel.setDisable(false);
+        btnReset.setDisable(false);
+
+        diceService.restart();
+    }
+
+    @FXML
+    void initialize() {
+        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'sample.fxml'.";
+        assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'sample.fxml'.";
+        assert btnRestart != null : "fx:id=\"btnRestart\" was not injected: check your FXML file 'sample.fxml'.";
+        assert diceImage != null : "fx:id=\"diceImage\" was not injected: check your FXML file 'sample.fxml'.";
+        assert pbRolling != null : "fx:id=\"pbRolling\" was not injected: check your FXML file 'sample.fxml'.";
+        assert piRolling != null : "fx:id=\"piRolling\" was not injected: check your FXML file 'sample.fxml'.";
+        assert rollButton != null : "fx:id=\"rollButton\" was not injected: check your FXML file 'sample.fxml'.";
+
+        diceService = createService();
+
+        btnRestart.setDisable(true);
+        btnCancel.setDisable(true);
+        btnReset.setDisable(true);
+    }
+
+    Service<ObservableList<Image>> createService(){
+        return new Service<ObservableList<Image>>() {
+            @Override
+            protected Task<ObservableList<Image>> createTask () {
+                return new Task<ObservableList<Image>>() {
+                    @Override
+                    protected ObservableList<Image> call() throws Exception {
+                        Random random = new Random();
+                        ObservableList<Image> imgList = FXCollections.observableArrayList();
+                        try {
+                            for (int i = 1; i <= 100; i++) {
+
+                                if (isCancelled()) {
+                                    break;
+                                }
+
+                                File file = new File("src\\main\\resources\\com\\example\\vplab12\\Dice\\Dice" + (random.nextInt(6) + 1) + ".png");
+                                imgList.add(new Image(file.toURI().toString()));
+                                diceImage.setImage(new Image(file.toURI().toString()));
+                                this.updateProgress(i, 100.0);
+                                Thread.sleep(350);
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return imgList;
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        super.succeeded();
+                        updateMessage("Done!");
+                    }
+
+                    @Override
+                    protected void cancelled() {
+                        super.cancelled();
+                        updateMessage("Cancelled!");
+                    }
+
+                    @Override
+                    protected void failed() {
+                        super.failed();
+                        updateMessage("Failed!");
+                    }
+                };
+            }
+        };
     }
 
     @FXML
@@ -69,39 +140,7 @@ public class DiceController {
         pbRolling.setProgress(0);
         piRolling.setProgress(0);
         btnCancel.setDisable(false);
-
-        diceService = new Service<ObservableList<Image>>() {
-            @Override
-            protected Task<ObservableList<Image>> createTask() {
-                Random random = new Random();
-                ObservableList<Image> imgList = FXCollections.observableArrayList();
-                try {
-                    for (int i = 1; i <= 100; i++) {
-                        File file = new File("src\\main\\resources\\com\\example\\vplab12\\Dice\\Dice" + (random.nextInt(6)+1)+".png");
-                        diceImage.setImage(new Image(file.toURI().toString()));
-                        imgList.add(new Image(file.toURI().toString()));
-                        Thread.sleep(450);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                return new Task<ObservableList<Image>>() {
-                    @Override
-                    protected ObservableList<Image> call() throws Exception {
-                        for(int i = 1; i <= 100; i++) {
-                            this.updateProgress(i, 100.0);
-                        }
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        return imgList;
-                    }
-                };
-            }
-        };
+        btnReset.setDisable(false);
 
         pbRolling.progressProperty().unbind();
 
@@ -111,36 +150,15 @@ public class DiceController {
 
         piRolling.progressProperty().bind(diceService.progressProperty());
 
-        diceService.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED, //
+        diceService.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
                 new EventHandler<WorkerStateEvent>() {
                     @Override
                     public void handle(WorkerStateEvent t) {
-                        rollButton.setDisable(false);
+                        btnRestart.setDisable(false);
+                        btnReset.setDisable(true);
                     }
                 });
 
-        Service<ObservableList<Image>> service = new DiceService();
-
-        service.start();
-
-//        Thread thread = new Thread(){
-//            public void run(){
-//                System.out.println("Thread Running");
-//                try {
-//                    for (int i = 1; i <= 100; i++) {
-//                        File file = new File("src\\main\\resources\\com\\example\\vplab12\\Dice\\Dice" + (random.nextInt(6)+1)+".png");
-//                        diceImage.setImage(new Image(file.toURI().toString()));
-//                        pbRolling.setProgress(i/100.0);
-//                        piRolling.setProgress(i/100.0);
-//                        Thread.sleep(450);
-//                    }
-//                    rollButton.setDisable(false);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//
-//        thread.start();
+        diceService.start();
     }
 }
