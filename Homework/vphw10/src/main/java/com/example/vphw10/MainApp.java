@@ -22,7 +22,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("threads.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 370, 524);
+        Scene scene = new Scene(fxmlLoader.load(), 380, 524);
         primaryStage.setTitle("Threads and GUI");
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -185,8 +185,8 @@ public class ThreadsController {
 
         for(int i = 0;  i < 22; i++){
             Random random = new Random();
-            int max = 5000;
-            int min = 4500;
+            int max = 50000;
+            int min = 40000;
             int citizens = random.nextInt(max - min) + min;
             services.add(new ThreadService(citizens));
         }
@@ -224,6 +224,7 @@ public class ThreadsController {
 
             service.start();
         }
+
     }
 }
 

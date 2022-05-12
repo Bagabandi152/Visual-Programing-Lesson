@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="524.0" prefWidth="370.0" spacing="5.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw10.ThreadsController">
+<VBox alignment="CENTER" prefHeight="524.0" prefWidth="380.0" spacing="5.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vphw10.ThreadsController">
    <padding>
       <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
    </padding>
@@ -16,159 +16,159 @@
          <children>
             <Label prefWidth="90.0" text="Ulaanbaatar" />
             <ProgressBar fx:id="pb1" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab1" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab1" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Dornod" />
             <ProgressBar fx:id="pb2" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab2" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab2" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Sukhbaatar" />
             <ProgressBar fx:id="pb3" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab3" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab3" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Khentii" />
             <ProgressBar fx:id="pb4" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab4" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab4" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Tuw" />
             <ProgressBar fx:id="pb5" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab5" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab5" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Gowisumber" />
             <ProgressBar fx:id="pb6" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab6" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab6" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Selenge" />
             <ProgressBar fx:id="pb7" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab7" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab7" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Dornogowi" />
             <ProgressBar fx:id="pb8" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab8" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab8" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Darkhan-Uul" />
             <ProgressBar fx:id="pb9" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab9" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab9" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Umnugowi" />
             <ProgressBar fx:id="pb10" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab10" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab10" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Dundgowi" />
             <ProgressBar fx:id="pb11" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab11" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab11" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Orkhon" />
             <ProgressBar fx:id="pb12" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab12" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab12" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Uwurkhangai" />
             <ProgressBar fx:id="pb13" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab13" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab13" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Bulgan" />
             <ProgressBar fx:id="pb14" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab14" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab14" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Bayankhongor" />
             <ProgressBar fx:id="pb15" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab15" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab15" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Khuwsgul" />
             <ProgressBar fx:id="pb16" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab16" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab16" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Zawkhan" />
             <ProgressBar fx:id="pb17" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab17" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab17" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Gowi-Altai" />
             <ProgressBar fx:id="pb18" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab18" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab18" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Bayan-Ulgii" />
             <ProgressBar fx:id="pb19" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab19" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab19" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Khowd" />
             <ProgressBar fx:id="pb20" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab20" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab20" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Uws" />
             <ProgressBar fx:id="pb21" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab21" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab21" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefWidth="90.0" text="Arkhangai" />
             <ProgressBar fx:id="pb22" prefHeight="18.0" prefWidth="230.0" progress="0.0" />
-            <Label fx:id="lab22" prefWidth="60.0" text="Label" />
+            <Label fx:id="lab22" prefWidth="30.0" text="0%" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="btnRun" mnemonicParsing="false" onAction="#toRun" text="Run" />
+            <Button fx:id="btnRun" mnemonicParsing="false" onAction="#toRun" prefWidth="90.0" text="Run" />
          </children>
       </HBox>
    </children>
