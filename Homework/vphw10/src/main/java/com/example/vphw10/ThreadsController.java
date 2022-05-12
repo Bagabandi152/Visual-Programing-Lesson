@@ -20,7 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
 /**
- * @author Littl
+ * @author Bagaa
  * @project vphw10
  * @created 10/05/2022 - 8:02 PM
  */
