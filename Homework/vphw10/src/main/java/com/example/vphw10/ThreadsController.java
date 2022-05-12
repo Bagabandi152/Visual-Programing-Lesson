@@ -1,10 +1,12 @@
 package com.example.vphw10;
 
 import java.net.URL;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
+import javafx.application.Platform;
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
@@ -76,6 +78,9 @@ public class ThreadsController {
     private Label lab21;
 
     @FXML
+    private Label lab22;
+
+    @FXML
     private Label lab3;
 
     @FXML
@@ -139,6 +144,9 @@ public class ThreadsController {
     private ProgressBar pb21;
 
     @FXML
+    private ProgressBar pb22;
+
+    @FXML
     private ProgressBar pb3;
 
     @FXML
@@ -159,136 +167,63 @@ public class ThreadsController {
     @FXML
     private ProgressBar pb9;
 
-//    private ObservableList<Service<ObservableList<Integer>>> services;
+    private ArrayList<Service<Void>> services = new ArrayList<>();
 
     private Service<ObservableList<Integer>> service1;
 
+    private ArrayList<ProgressBar> progressBars = new ArrayList<>();
+
+    private ArrayList<Label> labels = new ArrayList<>();
+
     @FXML
     void initialize() {
-        assert btnRun != null : "fx:id=\"btnRun\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab1 != null : "fx:id=\"lab1\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab10 != null : "fx:id=\"lab10\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab11 != null : "fx:id=\"lab11\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab12 != null : "fx:id=\"lab12\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab13 != null : "fx:id=\"lab13\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab14 != null : "fx:id=\"lab14\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab15 != null : "fx:id=\"lab15\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab16 != null : "fx:id=\"lab16\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab17 != null : "fx:id=\"lab17\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab18 != null : "fx:id=\"lab18\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab19 != null : "fx:id=\"lab19\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab2 != null : "fx:id=\"lab2\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab20 != null : "fx:id=\"lab20\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab21 != null : "fx:id=\"lab21\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab3 != null : "fx:id=\"lab3\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab4 != null : "fx:id=\"lab4\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab5 != null : "fx:id=\"lab5\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab6 != null : "fx:id=\"lab6\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab7 != null : "fx:id=\"lab7\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab8 != null : "fx:id=\"lab8\" was not injected: check your FXML file 'threads.fxml'.";
-        assert lab9 != null : "fx:id=\"lab9\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb1 != null : "fx:id=\"pb1\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb10 != null : "fx:id=\"pb10\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb11 != null : "fx:id=\"pb11\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb12 != null : "fx:id=\"pb12\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb13 != null : "fx:id=\"pb13\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb14 != null : "fx:id=\"pb14\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb15 != null : "fx:id=\"pb15\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb16 != null : "fx:id=\"pb16\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb17 != null : "fx:id=\"pb17\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb18 != null : "fx:id=\"pb18\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb19 != null : "fx:id=\"pb19\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb2 != null : "fx:id=\"pb2\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb20 != null : "fx:id=\"pb20\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb21 != null : "fx:id=\"pb21\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb3 != null : "fx:id=\"pb3\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb4 != null : "fx:id=\"pb4\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb5 != null : "fx:id=\"pb5\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb6 != null : "fx:id=\"pb6\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb7 != null : "fx:id=\"pb7\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb8 != null : "fx:id=\"pb8\" was not injected: check your FXML file 'threads.fxml'.";
-        assert pb9 != null : "fx:id=\"pb9\" was not injected: check your FXML file 'threads.fxml'.";
+        progressBars.addAll(Arrays.asList(pb1, pb2, pb3, pb4, pb5, pb6, pb7, pb8, pb9, pb10, pb11, pb12, pb13,
+                pb14, pb15, pb16, pb17, pb18, pb19, pb20, pb21, pb22));
 
-//        services.forEach((service) -> {
-//            service = createService();
-//        });
+        labels.addAll(Arrays.asList(lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12,
+                lab13, lab14, lab15, lab16, lab17, lab18, lab19, lab20, lab21, lab22));
 
-        service1 = createService();
+        for(int i = 0;  i < 22; i++){
+            Random random = new Random();
+            int max = 5000;
+            int min = 4500;
+            int citizens = random.nextInt(max - min) + min;
+            services.add(new ThreadService(citizens));
+        }
+
     }
 
     @FXML
     void toRun(ActionEvent event) {
         btnRun.setDisable(true);
 
-        pb1.progressProperty().unbind();
+        for(int i = 0; i < services.size(); i++){
+            ProgressBar pb = progressBars.get(i);
+            Label lab = labels.get(i);
+            Service<Void> service = services.get(i);
 
-        pb1.progressProperty().bind(service1.progressProperty());
+            pb.progressProperty().unbind();
 
-//        lab1.setText(pb1.getProgress()*100 + "%");
+            pb.progressProperty().bind(service.progressProperty());
 
-        service1.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
-                new EventHandler<WorkerStateEvent>() {
-                    @Override
-                    public void handle(WorkerStateEvent t) {
-                        btnRun.setDisable(false);
-                        pb1.progressProperty().unbind();
-                    }
-                });
+            pb.progressProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                    lab.setText((int)Math.ceil((t1.doubleValue()) * 100) + "%");
+                }
+            });
 
-        service1.start();
-
-    }
-
-
-    Service<ObservableList<Integer>> createService() {
-        return new Service <ObservableList < Integer >> () {
-            @Override
-            protected Task<ObservableList<Integer>> createTask () {
-                return new Task<ObservableList<Integer>>() {
-                    @Override
-                    protected ObservableList<Integer> call() throws Exception {
-                        Random random = new Random();
-                        int max = 200;
-                        int min = 10;
-                        int citizens = random.nextInt(max - min) + min;
-                        ObservableList<Integer> numberList = FXCollections.observableArrayList();
-                        try {
-                            for (int i = 1; i <= citizens; i++) {
-
-                                if (isCancelled()) {
-                                    break;
-                                }
-
-                                numberList.add(i);
-                                this.updateProgress(i, citizens);
-                                Thread.sleep(200);
-                            }
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+            final int idx = i;
+            service.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
+                    new EventHandler<WorkerStateEvent>() {
+                        @Override
+                        public void handle(WorkerStateEvent t) {
+                            if (services.size() == idx + 1 ) btnRun.setDisable(false);
                         }
-                        return numberList;
-                    }
+                    });
 
-                    @Override
-                    protected void succeeded() {
-                        super.succeeded();
-                        updateMessage("Done!");
-                    }
-
-                    @Override
-                    protected void cancelled() {
-                        super.cancelled();
-                        updateMessage("Cancelled!");
-                    }
-
-                    @Override
-                    protected void failed() {
-                        super.failed();
-                        updateMessage("Failed!");
-                    }
-                };
-            }
-        };
+            service.start();
+        }
     }
 }
 

@@ -14,32 +14,32 @@ import java.util.Random;
  * @project vphw10
  * @created 10/05/2022 - 8:50 PM
  */
-public class ThreadService extends Service<ObservableList<Integer>> {
+public class ThreadService extends Service<Void> {
+
+    private int citizens;
+
+    ThreadService(int citizens){
+        this.citizens = citizens;
+    }
+
     @Override
-    protected Task<ObservableList<Integer>> createTask() {
-        return new Task<ObservableList<Integer>>() {
+    protected Task<Void> createTask() {
+        return new Task<Void>() {
             @Override
-            protected ObservableList<Integer> call() throws Exception {
-                Random random = new Random();
-                int max = 50000;
-                int min = 30000;
-                int citizens = 100;// random.nextInt(max - min) + min;
-                ObservableList<Integer> numberList = FXCollections.observableArrayList();
+            protected Void call() throws Exception {
                 try {
                     for (int i = 1; i <= citizens; i++) {
 
                         if(isCancelled()){
                             break;
                         }
-
-                        numberList.add(i);
                         this.updateProgress(i, citizens);
-                        Thread.sleep(100);
+                        Thread.sleep(1);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                return numberList;
+                return null;
             }
 
             @Override protected void succeeded() {
