@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefWidth="360.0" spacing="20.0" stylesheets="@../../style/mainStyle.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.biy_daalt.MainController">
+<VBox fx:id="containVBox" alignment="CENTER" prefWidth="380.0" spacing="20.0" stylesheets="@../../style/mainStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biy_daalt.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -53,14 +53,14 @@
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
-   <HBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="87.0" prefWidth="360.0" spacing="150.0">
+   <HBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="87.0" prefWidth="360.0" spacing="210.0">
       <children>
          <ImageView fx:id="natural_img" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
             <HBox.margin>
                <Insets />
             </HBox.margin>
          </ImageView>
-          <Button fx:id="shuffleBtn" alignment="CENTER" onAction="#shuffle" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #000; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-radius: 15;" styleClass=".shuffle-btn" stylesheets="@../../style/mainStyle.css" text="shuffle" />
+          <Button fx:id="shuffleBtn" alignment="CENTER" onAction="#shuffle" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #000; -fx-border-width: 2; -fx-border-radius: 25; -fx-background-radius: 25;" styleClass=".shuffle-btn" stylesheets="@../../style/mainStyle.css" text="shuf" />
       </children>
    </HBox>
 </VBox>

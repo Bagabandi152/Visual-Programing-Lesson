@@ -12,10 +12,10 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 360, 522);
+        Scene scene = new Scene(fxmlLoader.load(), 380, 522);
         stage.setTitle("Puzzle Game");
         stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
 
