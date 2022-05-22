@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefWidth="360.0" spacing="20.0" stylesheets="@../../style/mainStyle.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.biy_daalt.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <GridPane fx:id="puzzle">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <ImageView fx:id="img1x1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="img1x2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+         <ImageView fx:id="img1x3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+         <ImageView fx:id="img1x4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+         <ImageView fx:id="img2x1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+         <ImageView fx:id="img2x2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ImageView fx:id="img2x3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <ImageView fx:id="img2x4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         <ImageView fx:id="img3x1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+         <ImageView fx:id="img3x2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <ImageView fx:id="img3x3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <ImageView fx:id="img3x4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         <ImageView fx:id="img4x1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+         <ImageView fx:id="img4x2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <ImageView fx:id="img4x3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <ImageView fx:id="img4x4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      </children>
+   </GridPane>
+
+          <Label fx:id="puzzleStatusLbl" alignment="CENTER" prefHeight="30.0" prefWidth="360.0" text="UNSOLVED" textAlignment="CENTER" textFill="RED">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <HBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="87.0" prefWidth="360.0" spacing="150.0">
+      <children>
+         <ImageView fx:id="natural_img" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+         </ImageView>
+          <Button fx:id="shuffleBtn" alignment="CENTER" onAction="#shuffle" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #000; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-radius: 15;" styleClass=".shuffle-btn" stylesheets="@../../style/mainStyle.css" text="shuffle" />
+      </children>
+   </HBox>
+</VBox>
