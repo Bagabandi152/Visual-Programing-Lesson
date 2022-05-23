@@ -137,6 +137,8 @@ public class MainController implements Initializable {
             }
         }
 
+        mainEvent();
+
     }
 
     public void mainEvent() {
