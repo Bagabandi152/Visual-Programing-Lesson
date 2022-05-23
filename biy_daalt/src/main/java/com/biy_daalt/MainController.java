@@ -114,19 +114,28 @@ public class MainController implements Initializable {
             imgList.add(image);
         }
 
-        int itr = 0;
+//        int ind = 0;
+//        for (int i = 0; i < PUZZLE_SIZE; i++) {
+//            for (int j = 0; j < PUZZLE_SIZE; j++) {
+//                ivList.get(ind).setImage(imgList.get(itr));
+//                ind++;
+//            }
+//        }
+//
+//        puzzleStatusLbl.setText("SOLVED");
+//        puzzleStatusLbl.setTextFill(Color.GREEN);
+
+        int ind = 0;
         for (int i = 0; i < PUZZLE_SIZE; i++) {
             for (int j = 0; j < PUZZLE_SIZE; j++) {
                 if (puzzleModel.getBoardAt(i, j) != null) {
                     int boardAt = puzzleModel.getBoardAt(i, j);
-                    ivList.get(itr++).setImage(imgList.get(boardAt - 1));
+                    ivList.get(ind++).setImage(imgList.get(boardAt - 1));
                 } else {
-                    ivList.get(itr++).setImage(null);
+                    ivList.get(ind++).setImage(null);
                 }
             }
         }
-
-        mainEvent();
 
     }
 
