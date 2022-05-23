@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="com.example.javafxmidterm2.Controller">
+<GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmidterm2.Controller">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -24,69 +24,69 @@
       <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label prefHeight="17.0" prefWidth="425.0" text="Harvesting process from each company's site:" textAlignment="CENTER" GridPane.columnSpan="7">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-      </Label>
-      <ProgressBar fx:id="combine1Pb1" prefHeight="18.0" prefWidth="352.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="1" />
-      <ProgressBar fx:id="combine2Pb1" prefHeight="18.0" prefWidth="320.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="2" />
-      <ProgressBar fx:id="combine3Pb1" prefHeight="18.0" prefWidth="369.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" />
-      <ProgressBar fx:id="combine4Pb1" prefHeight="18.0" prefWidth="306.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="4" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="No1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets right="5.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="No2" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets right="5.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="No3" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets right="5.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="No4" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets right="5.0" />
-         </padding>
-      </Label>
-      <Label fx:id="combine1Pc1" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="100.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-      <Label fx:id="combine2Pc1" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="13.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-      <Label fx:id="combine3Pc1" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="4.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-      <Label fx:id="combine4Pc1" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="5.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="1">
+      <Label prefHeight="17.0" prefWidth="425.0" text="Harvesting process for each combain:" textAlignment="CENTER" GridPane.columnSpan="7">
          <padding>
             <Insets left="5.0" />
          </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
       </Label>
-      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="2">
+      <ProgressBar fx:id="combine1ProcessPb" prefHeight="18.0" prefWidth="352.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+      <ProgressBar fx:id="combine2ProcessPb" prefHeight="18.0" prefWidth="320.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+      <ProgressBar fx:id="combine3ProcessPb" prefHeight="18.0" prefWidth="369.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+      <ProgressBar fx:id="combine4ProcessPb" prefHeight="18.0" prefWidth="306.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="7" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="Combine 1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="Combine 2" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="Combine 3" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="Combine 4" GridPane.rowIndex="7">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="combine1ProcessPc" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="0.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <Label fx:id="combine2ProcessPc" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="0.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+      <Label fx:id="combine3ProcessPc" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="0.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+      <Label fx:id="combine4ProcessPc" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="0.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="1">
          <padding>
             <Insets left="5.0" />
          </padding>
@@ -96,9 +96,77 @@
             <Insets left="5.0" />
          </padding>
       </Label>
-      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="4">
+      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="5">
          <padding>
             <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="7">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="425.0" text="Harvesting process for total combain:" textAlignment="CENTER" GridPane.columnSpan="7" GridPane.rowIndex="9">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" text="Combine   " GridPane.rowIndex="10">
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+      </Label>
+      <ProgressBar fx:id="allCombinePb" prefHeight="18.0" prefWidth="306.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="10" />
+      <Label fx:id="allCombinePc" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="113.0" text="0.0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+      <Label prefHeight="17.0" prefWidth="76.0" text="\%" GridPane.columnIndex="6" GridPane.rowIndex="10">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="combine1Cnt" prefHeight="17.0" prefWidth="166.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="combine2Cnt" prefHeight="17.0" prefWidth="158.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="combine3Cnt" prefHeight="17.0" prefWidth="122.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="combine4Cnt" prefHeight="17.0" prefWidth="243.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="allCombineCnt" prefHeight="17.0" prefWidth="243.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="425.0" text="Most harvesting combine:" textAlignment="CENTER" GridPane.columnSpan="7" GridPane.rowIndex="12">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="mostHarvestCnt" prefHeight="17.0" prefWidth="243.0" text="0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="13">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="mostHarvestCombine" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="79.0" GridPane.rowIndex="13">
+         <padding>
+            <Insets right="5.0" />
          </padding>
       </Label>
    </children>
