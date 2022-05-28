@@ -1,6 +1,6 @@
 package com.example.uliraldemo.dao;
 
-import com.example.uliraldemo.conn.Connection;
+import com.example.uliraldemo.conn.DbConnectionUtils;
 import com.example.uliraldemo.model.Department;
 import com.example.uliraldemo.model.Employee;
 import com.example.uliraldemo.model.Position;
@@ -18,11 +18,11 @@ import java.sql.SQLException;
  * @definition
  */
 public class EmployeeDao {
-    public static ObservableList<Employee> getEmployeesFromDb() throws SQLException {
+    public static ObservableList<Employee> getEmployeesFromDb() throws SQLException, ClassNotFoundException {
         ObservableList<Employee> employees = FXCollections.observableArrayList();
 
         String query = "SELECT * FROM d_db_employee";
-        ResultSet rs = Connection.dbExecuteQuery(query);
+        ResultSet rs = DbConnectionUtils.dbExecuteQuery(query);
 
         while (rs.next()){
             Employee newEmp = new Employee(rs.getString("fullName"),
@@ -38,11 +38,11 @@ public class EmployeeDao {
     }
 
 
-    public static ObservableList<Department> getDepartmentsFromDb() throws SQLException {
+    public static ObservableList<Department> getDepartmentsFromDb() throws SQLException, ClassNotFoundException {
         ObservableList<Department> departments = FXCollections.observableArrayList();
 
         String query = "SELECT * FROM d_db_department";
-        ResultSet rs = Connection.dbExecuteQuery(query);
+        ResultSet rs = DbConnectionUtils.dbExecuteQuery(query);
 
         while (rs.next()){
             Department newDep = new Department(
@@ -56,11 +56,11 @@ public class EmployeeDao {
         return departments;
     }
 
-    public static ObservableList<Position> getPositionsFromDb() throws SQLException {
+    public static ObservableList<Position> getPositionsFromDb() throws SQLException, ClassNotFoundException {
         ObservableList<Position> positions = FXCollections.observableArrayList();
 
         String query = "SELECT * FROM d_db_position";
-        ResultSet rs = Connection.dbExecuteQuery(query);
+        ResultSet rs = DbConnectionUtils.dbExecuteQuery(query);
 
         while (rs.next()){
             Position newPos = new Position(

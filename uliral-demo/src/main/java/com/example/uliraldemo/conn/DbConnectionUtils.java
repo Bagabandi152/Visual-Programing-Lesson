@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Connection;
 
 /**
  * @author Bagaa
@@ -14,30 +15,26 @@ import java.sql.Statement;
  * @purpose
  * @definition
  */
-public class Connection {
+public class DbConnectionUtils {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/demo_db";
+    private static final String DB_HOSTNAME = "localhost";
+    private static final String DB_NAME = "demo_db";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
     //Connection
-    private static java.sql.Connection conn = null;
+    private static Connection conn = null;
 
     //Connect to DB
-    public static void dbConnect() throws SQLException {
+    public static void dbConnect() throws SQLException, ClassNotFoundException {
 
-        java.sql.Connection connection = null;
-        try {
-            Class.forName(DB_DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            conn = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
-        }
+        Class.forName(DB_DRIVER);
+
+        //Connection url
+        String connectionURL = "jdbc:mysql://" + DB_HOSTNAME + ":3306/" + DB_NAME;
+
+        conn = DriverManager.getConnection(connectionURL, DB_USER,
+                DB_PASSWORD);
     }
 
     //Close Connection
@@ -48,7 +45,7 @@ public class Connection {
     }
 
     //DB Execute Query Operation
-    public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException {
+    public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException, ClassNotFoundException {
         Statement stmt = null;
         ResultSet resultSet = null;
         CachedRowSetImpl crs = null;
@@ -78,7 +75,7 @@ public class Connection {
             stmt = conn.createStatement();
             stmt.executeUpdate(sqlStmt);
         } catch (SQLException e) {
-            System.out.println("Problem occurred at executeUpdate operation : " + e);
+            e.printStackTrace();
             throw e;
         } finally {
             if (stmt != null) {

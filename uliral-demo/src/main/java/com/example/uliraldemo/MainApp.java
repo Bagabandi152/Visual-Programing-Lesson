@@ -25,7 +25,7 @@ public class MainApp extends Application {
     public MainApp(){
         try {
             getEmployees().addAll(EmployeeDao.getEmployeesFromDb());
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -43,7 +43,7 @@ public class MainApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         initRootLayout();
     }
@@ -55,7 +55,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class
                     .getResource("sample.fxml"));
-            BorderPane rootLayout = (BorderPane) loader.load();
+            BorderPane rootLayout = loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -64,7 +64,6 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             Controller controller = loader.getController();
             controller.setMain(this);
-//            controller.setStage(primaryStage);
 
             primaryStage.show();
         } catch(IOException e) {

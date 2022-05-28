@@ -50,7 +50,7 @@
                                 <Label prefHeight="17.0" prefWidth="80.0" text="Phone Ext:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                 <Label prefHeight="17.0" prefWidth="80.0" text="Facebook ID:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                 <TextField fx:id="nickNameField" GridPane.columnIndex="3" />
-                                <TextField fx:id="facebookUlrField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                <TextField fx:id="facebookUrlField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                 <TextField fx:id="phoneField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                 <Label prefHeight="17.0" prefWidth="80.0" text="Line ID:" GridPane.rowIndex="4" />
                                 <TextField fx:id="lineIDField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
